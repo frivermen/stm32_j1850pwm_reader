@@ -1,5 +1,6 @@
 # stm32_j1850pwm_reader
 STM32F030F6 reader for J1850 PWM protocol
+
 For connect stm32 to obd2 use lm393:
  NC 1        8 3.3V
  NC 2        7 PB1
