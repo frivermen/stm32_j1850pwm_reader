@@ -1,0 +1,369 @@
+ARM GAS  /tmp/ccDNLcHF.s 			page 1
+
+
+   1              		.cpu cortex-m0
+   2              		.arch armv6s-m
+   3              		.fpu softvfp
+   4              		.eabi_attribute 20, 1
+   5              		.eabi_attribute 21, 1
+   6              		.eabi_attribute 23, 3
+   7              		.eabi_attribute 24, 1
+   8              		.eabi_attribute 25, 1
+   9              		.eabi_attribute 26, 1
+  10              		.eabi_attribute 30, 6
+  11              		.eabi_attribute 34, 0
+  12              		.eabi_attribute 18, 4
+  13              		.file	"tim.c"
+  14              		.text
+  15              	.Ltext0:
+  16              		.cfi_sections	.debug_frame
+  17              		.file 1 "Src/tim.c"
+  18              		.global	htim17
+  19              		.section	.bss.htim17,"aw",%nobits
+  20              		.align	2
+  23              	htim17:
+  24 0000 00000000 		.space	64
+  24      00000000 
+  24      00000000 
+  24      00000000 
+  24      00000000 
+  25              		.section	.text.MX_TIM17_Init,"ax",%progbits
+  26              		.align	1
+  27              		.global	MX_TIM17_Init
+  28              		.syntax unified
+  29              		.code	16
+  30              		.thumb_func
+  32              	MX_TIM17_Init:
+  33              	.LFB40:
+   1:Src/tim.c     **** /* USER CODE BEGIN Header */
+   2:Src/tim.c     **** /**
+   3:Src/tim.c     ****   ******************************************************************************
+   4:Src/tim.c     ****   * @file    tim.c
+   5:Src/tim.c     ****   * @brief   This file provides code for the configuration
+   6:Src/tim.c     ****   *          of the TIM instances.
+   7:Src/tim.c     ****   ******************************************************************************
+   8:Src/tim.c     ****   * @attention
+   9:Src/tim.c     ****   *
+  10:Src/tim.c     ****   * Copyright (c) 2024 STMicroelectronics.
+  11:Src/tim.c     ****   * All rights reserved.
+  12:Src/tim.c     ****   *
+  13:Src/tim.c     ****   * This software is licensed under terms that can be found in the LICENSE file
+  14:Src/tim.c     ****   * in the root directory of this software component.
+  15:Src/tim.c     ****   * If no LICENSE file comes with this software, it is provided AS-IS.
+  16:Src/tim.c     ****   *
+  17:Src/tim.c     ****   ******************************************************************************
+  18:Src/tim.c     ****   */
+  19:Src/tim.c     **** /* USER CODE END Header */
+  20:Src/tim.c     **** /* Includes ------------------------------------------------------------------*/
+  21:Src/tim.c     **** #include "tim.h"
+  22:Src/tim.c     **** 
+  23:Src/tim.c     **** /* USER CODE BEGIN 0 */
+ARM GAS  /tmp/ccDNLcHF.s 			page 2
+
+
+  24:Src/tim.c     **** 
+  25:Src/tim.c     **** /* USER CODE END 0 */
+  26:Src/tim.c     **** 
+  27:Src/tim.c     **** TIM_HandleTypeDef htim17;
+  28:Src/tim.c     **** 
+  29:Src/tim.c     **** /* TIM17 init function */
+  30:Src/tim.c     **** void MX_TIM17_Init(void)
+  31:Src/tim.c     **** {
+  34              		.loc 1 31 1
+  35              		.cfi_startproc
+  36              		@ args = 0, pretend = 0, frame = 0
+  37              		@ frame_needed = 1, uses_anonymous_args = 0
+  38 0000 80B5     		push	{r7, lr}
+  39              	.LCFI0:
+  40              		.cfi_def_cfa_offset 8
+  41              		.cfi_offset 7, -8
+  42              		.cfi_offset 14, -4
+  43 0002 00AF     		add	r7, sp, #0
+  44              	.LCFI1:
+  45              		.cfi_def_cfa_register 7
+  32:Src/tim.c     **** 
+  33:Src/tim.c     ****   /* USER CODE BEGIN TIM17_Init 0 */
+  34:Src/tim.c     **** 
+  35:Src/tim.c     ****   /* USER CODE END TIM17_Init 0 */
+  36:Src/tim.c     **** 
+  37:Src/tim.c     ****   /* USER CODE BEGIN TIM17_Init 1 */
+  38:Src/tim.c     **** 
+  39:Src/tim.c     ****   /* USER CODE END TIM17_Init 1 */
+  40:Src/tim.c     ****   htim17.Instance = TIM17;
+  46              		.loc 1 40 19
+  47 0004 104B     		ldr	r3, .L4
+  48 0006 114A     		ldr	r2, .L4+4
+  49 0008 1A60     		str	r2, [r3]
+  41:Src/tim.c     ****   htim17.Init.Prescaler = 47;
+  50              		.loc 1 41 25
+  51 000a 0F4B     		ldr	r3, .L4
+  52 000c 2F22     		movs	r2, #47
+  53 000e 5A60     		str	r2, [r3, #4]
+  42:Src/tim.c     ****   htim17.Init.CounterMode = TIM_COUNTERMODE_UP;
+  54              		.loc 1 42 27
+  55 0010 0D4B     		ldr	r3, .L4
+  56 0012 0022     		movs	r2, #0
+  57 0014 9A60     		str	r2, [r3, #8]
+  43:Src/tim.c     ****   htim17.Init.Period = 2000;
+  58              		.loc 1 43 22
+  59 0016 0C4B     		ldr	r3, .L4
+  60 0018 FA22     		movs	r2, #250
+  61 001a D200     		lsls	r2, r2, #3
+  62 001c DA60     		str	r2, [r3, #12]
+  44:Src/tim.c     ****   htim17.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  63              		.loc 1 44 29
+  64 001e 0A4B     		ldr	r3, .L4
+  65 0020 0022     		movs	r2, #0
+  66 0022 1A61     		str	r2, [r3, #16]
+  45:Src/tim.c     ****   htim17.Init.RepetitionCounter = 0;
+  67              		.loc 1 45 33
+  68 0024 084B     		ldr	r3, .L4
+ARM GAS  /tmp/ccDNLcHF.s 			page 3
+
+
+  69 0026 0022     		movs	r2, #0
+  70 0028 5A61     		str	r2, [r3, #20]
+  46:Src/tim.c     ****   htim17.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  71              		.loc 1 46 33
+  72 002a 074B     		ldr	r3, .L4
+  73 002c 0022     		movs	r2, #0
+  74 002e 9A61     		str	r2, [r3, #24]
+  47:Src/tim.c     ****   if (HAL_TIM_Base_Init(&htim17) != HAL_OK)
+  75              		.loc 1 47 7
+  76 0030 054B     		ldr	r3, .L4
+  77 0032 1800     		movs	r0, r3
+  78 0034 FFF7FEFF 		bl	HAL_TIM_Base_Init
+  79 0038 031E     		subs	r3, r0, #0
+  80              		.loc 1 47 6 discriminator 1
+  81 003a 01D0     		beq	.L3
+  48:Src/tim.c     ****   {
+  49:Src/tim.c     ****     Error_Handler();
+  82              		.loc 1 49 5
+  83 003c FFF7FEFF 		bl	Error_Handler
+  84              	.L3:
+  50:Src/tim.c     ****   }
+  51:Src/tim.c     ****   /* USER CODE BEGIN TIM17_Init 2 */
+  52:Src/tim.c     **** 
+  53:Src/tim.c     ****   /* USER CODE END TIM17_Init 2 */
+  54:Src/tim.c     **** 
+  55:Src/tim.c     **** }
+  85              		.loc 1 55 1
+  86 0040 C046     		nop
+  87 0042 BD46     		mov	sp, r7
+  88              		@ sp needed
+  89 0044 80BD     		pop	{r7, pc}
+  90              	.L5:
+  91 0046 C046     		.align	2
+  92              	.L4:
+  93 0048 00000000 		.word	htim17
+  94 004c 00480140 		.word	1073825792
+  95              		.cfi_endproc
+  96              	.LFE40:
+  98              		.section	.text.HAL_TIM_Base_MspInit,"ax",%progbits
+  99              		.align	1
+ 100              		.global	HAL_TIM_Base_MspInit
+ 101              		.syntax unified
+ 102              		.code	16
+ 103              		.thumb_func
+ 105              	HAL_TIM_Base_MspInit:
+ 106              	.LFB41:
+  56:Src/tim.c     **** 
+  57:Src/tim.c     **** void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* tim_baseHandle)
+  58:Src/tim.c     **** {
+ 107              		.loc 1 58 1
+ 108              		.cfi_startproc
+ 109              		@ args = 0, pretend = 0, frame = 16
+ 110              		@ frame_needed = 1, uses_anonymous_args = 0
+ 111 0000 80B5     		push	{r7, lr}
+ 112              	.LCFI2:
+ 113              		.cfi_def_cfa_offset 8
+ 114              		.cfi_offset 7, -8
+ARM GAS  /tmp/ccDNLcHF.s 			page 4
+
+
+ 115              		.cfi_offset 14, -4
+ 116 0002 84B0     		sub	sp, sp, #16
+ 117              	.LCFI3:
+ 118              		.cfi_def_cfa_offset 24
+ 119 0004 00AF     		add	r7, sp, #0
+ 120              	.LCFI4:
+ 121              		.cfi_def_cfa_register 7
+ 122 0006 7860     		str	r0, [r7, #4]
+  59:Src/tim.c     **** 
+  60:Src/tim.c     ****   if(tim_baseHandle->Instance==TIM17)
+ 123              		.loc 1 60 20
+ 124 0008 7B68     		ldr	r3, [r7, #4]
+ 125 000a 1B68     		ldr	r3, [r3]
+ 126              		.loc 1 60 5
+ 127 000c 0E4A     		ldr	r2, .L9
+ 128 000e 9342     		cmp	r3, r2
+ 129 0010 15D1     		bne	.L8
+ 130              	.LBB2:
+  61:Src/tim.c     ****   {
+  62:Src/tim.c     ****   /* USER CODE BEGIN TIM17_MspInit 0 */
+  63:Src/tim.c     **** 
+  64:Src/tim.c     ****   /* USER CODE END TIM17_MspInit 0 */
+  65:Src/tim.c     ****     /* TIM17 clock enable */
+  66:Src/tim.c     ****     __HAL_RCC_TIM17_CLK_ENABLE();
+ 131              		.loc 1 66 5
+ 132 0012 0E4B     		ldr	r3, .L9+4
+ 133 0014 9A69     		ldr	r2, [r3, #24]
+ 134 0016 0D4B     		ldr	r3, .L9+4
+ 135 0018 8021     		movs	r1, #128
+ 136 001a C902     		lsls	r1, r1, #11
+ 137 001c 0A43     		orrs	r2, r1
+ 138 001e 9A61     		str	r2, [r3, #24]
+ 139 0020 0A4B     		ldr	r3, .L9+4
+ 140 0022 9A69     		ldr	r2, [r3, #24]
+ 141 0024 8023     		movs	r3, #128
+ 142 0026 DB02     		lsls	r3, r3, #11
+ 143 0028 1340     		ands	r3, r2
+ 144 002a FB60     		str	r3, [r7, #12]
+ 145 002c FB68     		ldr	r3, [r7, #12]
+ 146              	.LBE2:
+  67:Src/tim.c     **** 
+  68:Src/tim.c     ****     /* TIM17 interrupt Init */
+  69:Src/tim.c     ****     HAL_NVIC_SetPriority(TIM17_IRQn, 0, 0);
+ 147              		.loc 1 69 5
+ 148 002e 0022     		movs	r2, #0
+ 149 0030 0021     		movs	r1, #0
+ 150 0032 1620     		movs	r0, #22
+ 151 0034 FFF7FEFF 		bl	HAL_NVIC_SetPriority
+  70:Src/tim.c     ****     HAL_NVIC_EnableIRQ(TIM17_IRQn);
+ 152              		.loc 1 70 5
+ 153 0038 1620     		movs	r0, #22
+ 154 003a FFF7FEFF 		bl	HAL_NVIC_EnableIRQ
+ 155              	.L8:
+  71:Src/tim.c     ****   /* USER CODE BEGIN TIM17_MspInit 1 */
+  72:Src/tim.c     **** 
+  73:Src/tim.c     ****   /* USER CODE END TIM17_MspInit 1 */
+  74:Src/tim.c     ****   }
+ARM GAS  /tmp/ccDNLcHF.s 			page 5
+
+
+  75:Src/tim.c     **** }
+ 156              		.loc 1 75 1
+ 157 003e C046     		nop
+ 158 0040 BD46     		mov	sp, r7
+ 159 0042 04B0     		add	sp, sp, #16
+ 160              		@ sp needed
+ 161 0044 80BD     		pop	{r7, pc}
+ 162              	.L10:
+ 163 0046 C046     		.align	2
+ 164              	.L9:
+ 165 0048 00480140 		.word	1073825792
+ 166 004c 00100240 		.word	1073876992
+ 167              		.cfi_endproc
+ 168              	.LFE41:
+ 170              		.section	.text.HAL_TIM_Base_MspDeInit,"ax",%progbits
+ 171              		.align	1
+ 172              		.global	HAL_TIM_Base_MspDeInit
+ 173              		.syntax unified
+ 174              		.code	16
+ 175              		.thumb_func
+ 177              	HAL_TIM_Base_MspDeInit:
+ 178              	.LFB42:
+  76:Src/tim.c     **** 
+  77:Src/tim.c     **** void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* tim_baseHandle)
+  78:Src/tim.c     **** {
+ 179              		.loc 1 78 1
+ 180              		.cfi_startproc
+ 181              		@ args = 0, pretend = 0, frame = 8
+ 182              		@ frame_needed = 1, uses_anonymous_args = 0
+ 183 0000 80B5     		push	{r7, lr}
+ 184              	.LCFI5:
+ 185              		.cfi_def_cfa_offset 8
+ 186              		.cfi_offset 7, -8
+ 187              		.cfi_offset 14, -4
+ 188 0002 82B0     		sub	sp, sp, #8
+ 189              	.LCFI6:
+ 190              		.cfi_def_cfa_offset 16
+ 191 0004 00AF     		add	r7, sp, #0
+ 192              	.LCFI7:
+ 193              		.cfi_def_cfa_register 7
+ 194 0006 7860     		str	r0, [r7, #4]
+  79:Src/tim.c     **** 
+  80:Src/tim.c     ****   if(tim_baseHandle->Instance==TIM17)
+ 195              		.loc 1 80 20
+ 196 0008 7B68     		ldr	r3, [r7, #4]
+ 197 000a 1B68     		ldr	r3, [r3]
+ 198              		.loc 1 80 5
+ 199 000c 074A     		ldr	r2, .L14
+ 200 000e 9342     		cmp	r3, r2
+ 201 0010 08D1     		bne	.L13
+  81:Src/tim.c     ****   {
+  82:Src/tim.c     ****   /* USER CODE BEGIN TIM17_MspDeInit 0 */
+  83:Src/tim.c     **** 
+  84:Src/tim.c     ****   /* USER CODE END TIM17_MspDeInit 0 */
+  85:Src/tim.c     ****     /* Peripheral clock disable */
+  86:Src/tim.c     ****     __HAL_RCC_TIM17_CLK_DISABLE();
+ 202              		.loc 1 86 5
+ARM GAS  /tmp/ccDNLcHF.s 			page 6
+
+
+ 203 0012 074B     		ldr	r3, .L14+4
+ 204 0014 9A69     		ldr	r2, [r3, #24]
+ 205 0016 064B     		ldr	r3, .L14+4
+ 206 0018 0649     		ldr	r1, .L14+8
+ 207 001a 0A40     		ands	r2, r1
+ 208 001c 9A61     		str	r2, [r3, #24]
+  87:Src/tim.c     **** 
+  88:Src/tim.c     ****     /* TIM17 interrupt Deinit */
+  89:Src/tim.c     ****     HAL_NVIC_DisableIRQ(TIM17_IRQn);
+ 209              		.loc 1 89 5
+ 210 001e 1620     		movs	r0, #22
+ 211 0020 FFF7FEFF 		bl	HAL_NVIC_DisableIRQ
+ 212              	.L13:
+  90:Src/tim.c     ****   /* USER CODE BEGIN TIM17_MspDeInit 1 */
+  91:Src/tim.c     **** 
+  92:Src/tim.c     ****   /* USER CODE END TIM17_MspDeInit 1 */
+  93:Src/tim.c     ****   }
+  94:Src/tim.c     **** }
+ 213              		.loc 1 94 1
+ 214 0024 C046     		nop
+ 215 0026 BD46     		mov	sp, r7
+ 216 0028 02B0     		add	sp, sp, #8
+ 217              		@ sp needed
+ 218 002a 80BD     		pop	{r7, pc}
+ 219              	.L15:
+ 220              		.align	2
+ 221              	.L14:
+ 222 002c 00480140 		.word	1073825792
+ 223 0030 00100240 		.word	1073876992
+ 224 0034 FFFFFBFF 		.word	-262145
+ 225              		.cfi_endproc
+ 226              	.LFE42:
+ 228              		.text
+ 229              	.Letext0:
+ 230              		.file 2 "Drivers/CMSIS/Device/ST/STM32F0xx/Include/stm32f030x6.h"
+ 231              		.file 3 "/usr/arm-none-eabi/include/machine/_default_types.h"
+ 232              		.file 4 "/usr/arm-none-eabi/include/sys/_stdint.h"
+ 233              		.file 5 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_def.h"
+ 234              		.file 6 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_dma.h"
+ 235              		.file 7 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_tim.h"
+ 236              		.file 8 "Drivers/STM32F0xx_HAL_Driver/Inc/stm32f0xx_hal_cortex.h"
+ 237              		.file 9 "Inc/tim.h"
+ 238              		.file 10 "Inc/main.h"
+ARM GAS  /tmp/ccDNLcHF.s 			page 7
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 tim.c
+     /tmp/ccDNLcHF.s:23     .bss.htim17:00000000 htim17
+     /tmp/ccDNLcHF.s:20     .bss.htim17:00000000 $d
+     /tmp/ccDNLcHF.s:26     .text.MX_TIM17_Init:00000000 $t
+     /tmp/ccDNLcHF.s:32     .text.MX_TIM17_Init:00000000 MX_TIM17_Init
+     /tmp/ccDNLcHF.s:93     .text.MX_TIM17_Init:00000048 $d
+     /tmp/ccDNLcHF.s:99     .text.HAL_TIM_Base_MspInit:00000000 $t
+     /tmp/ccDNLcHF.s:105    .text.HAL_TIM_Base_MspInit:00000000 HAL_TIM_Base_MspInit
+     /tmp/ccDNLcHF.s:165    .text.HAL_TIM_Base_MspInit:00000048 $d
+     /tmp/ccDNLcHF.s:171    .text.HAL_TIM_Base_MspDeInit:00000000 $t
+     /tmp/ccDNLcHF.s:177    .text.HAL_TIM_Base_MspDeInit:00000000 HAL_TIM_Base_MspDeInit
+     /tmp/ccDNLcHF.s:222    .text.HAL_TIM_Base_MspDeInit:0000002c $d
+
+UNDEFINED SYMBOLS
+HAL_TIM_Base_Init
+Error_Handler
+HAL_NVIC_SetPriority
+HAL_NVIC_EnableIRQ
+HAL_NVIC_DisableIRQ
