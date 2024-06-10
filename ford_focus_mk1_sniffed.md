@@ -3,11 +3,17 @@ Allmost messages have current format:
 ```> PP TT SS DD .. DD CC  FF <```
 
 Where:
+
 PP - priority byte(see sae j1850 pwm)
+
 TT - target address byte
+
 SS - source address byte
+
 DD .. DD - data bytes
+
 CC - CRC8 byte(see ```crc8.c```)
+
 FF - one IFR byte(i thing it use for response acknowledge)
 
 Bellow some messages, which i collected from my ford focus mk1. First two ECU send every time, if engine is started and if it stopped(only if ignition turned on).
@@ -16,24 +22,39 @@ Bellow some messages, which i collected from my ford focus mk1. First two ECU se
 > 81 1B 10 25 13 19 FF 3D 00 81  60 <  // if started
 ```
 81 - priority
+
 1B - target address(i think this is transmission)
+
 10 - source address(ECU)
+
 25 - ???
+
 13,19 - RPM (0x1319 / 0x04 = 1222 rpm)
+
 FF,3D - Short Fuel Trim (16 bit signed int, 0x0000 is 0, 0xFFFF is -1 etc.)
+
 00 - Throttle position (n / 2 = real position in percent)
+
 81 - CRC (how to calc it see in ```crc8.c```)
+
 60 - IFR
 ```
 > 41 6B 10 41 0D 46 DB  F1 <
 ```
 A1 - header
+
 6B - target(i don't know that is it)
+
 10 - source(ECU)
+
 02 - ???
+
 0D,46 - VSS (0x0D46 / 0x80 = 71 km/h)
+
 DB - CRC
+
 FA - IFR
+
 
 This data i collected throw Forscan connected via ELM327(i remove CRC and IFR bytes)
 ```
@@ -41,7 +62,11 @@ This data i collected throw Forscan connected via ELM327(i remove CRC and IFR by
 > C4 F5 10 62 11 41 01 BF < - answer
 ```
 C4 - priority
+
 F5 - target(ELM327 Forscan)
+
 10 - source(ECU)
+
 22(62), 11, 41 - command for ignition pulse duration
+
 01,BF - ign pulse in ms*10^2(0x1BF = 447 => 4.47ms)
