@@ -39,11 +39,11 @@ FF,3D - Short Fuel Trim (16 bit signed int, 0x0000 is 0, 0xFFFF is -1 etc.)
 
 60 - IFR
 ```
-> 41 6B 10 41 0D 46 DB  F1 <
+> A1 29 10 02 0D 46 < // without IFR and crc8
 ```
 A1 - header
 
-6B - target(i don't know that is it)
+29 - target(i don't know that is it)
 
 10 - source(ECU)
 
@@ -51,9 +51,21 @@ A1 - header
 
 0D,46 - VSS (0x0D46 / 0x80 = 71 km/h)
 
-DB - CRC
+C2 - CRC
+```
+> A1 7B 10 02 00 < // without IFR and crc8
+```
+A1 - header
 
-FA - IFR
+7B - target(i don't know that is it)
+
+10 - source(ECU)
+
+02 - ???
+
+0D - some counter, that increment if VSS is changing(i think if speed up for 1km/h it increment for 1, but need to check this)
+
+C2 - CRC
 
 
 This data i collected throw Forscan connected via ELM327(i remove CRC and IFR bytes)
